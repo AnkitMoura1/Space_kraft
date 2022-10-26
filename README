@@ -1,0 +1,11 @@
+Scape kraft is 2d game
+i used pygame module for creating this game
+
+------- Controls -----
+WASD for controlling movement of left spaceship and left CTRL for shooting bullets
+Arrow keys for controlling movement of right spaceship and RIGHT CTRL for shooting
+
+-----ABOUT WIN -------
+Each player will get 10 heath and each bullet hit will remove 1 health from opponent
+FOR WIN U NEED TO HIT 10 BULLETS
+U CAN ONLY SHOOT 3 BULLET AT A TIME
