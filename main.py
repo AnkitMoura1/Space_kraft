@@ -2,24 +2,24 @@ import pygame
 pygame.font.init()
 
 WIDTH, HEIGHT = 900, 500
-SHIP_H, SHIP_W = 55, 40
-BULLET_H, BULLET_W = 40, 50
+SHIP_H, SHIP_W = 50, 40
+BULLET_H, BULLET_W = 10, 40
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space kraft")
 WHITE = (255, 255, 255)  # RGB
 FPS = 60
 BLACK = (0, 0, 0)
-red_ship = pygame.image.load('Resources/redship.png')
+red_ship = pygame.image.load('Resources/spaceship_red.png')
 red_ship = pygame.transform.scale(red_ship, (SHIP_W, SHIP_H))
 HEALTH_FONT = pygame.font.SysFont("comicsans", 40)
 
-red_bullet = pygame.image.load('Resources/bullet.png')
-red_bullet = pygame.transform.scale(red_bullet, (BULLET_H, BULLET_W))
+# red_bullet = pygame.image.load('Resources/bullet.png')
+# red_bullet = pygame.transform.scale(red_bullet, (BULLET_H, BULLET_W))
 
-blue_bullet = pygame.image.load("Resources/blue_bullet.png")
-blue_bullet = pygame.transform.scale(blue_bullet, (BULLET_W, BULLET_H))
+# blue_bullet = pygame.image.load("Resources/blue_bullet.png")
+# blue_bullet = pygame.transform.scale(blue_bullet, (BULLET_W, BULLET_H))
 
-blue_ship = pygame.image.load('Resources/blueship.png')
+blue_ship = pygame.image.load('Resources/spaceship_blue.png')
 blue_ship = pygame.transform.scale(blue_ship, (SHIP_W, SHIP_H))
 
 SPACE = pygame.image.load('Resources/space.png')
@@ -38,6 +38,7 @@ BLUE_HIT = pygame.USEREVENT + 2
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 
+
 red_health = 10
 blue_health = 10
 
@@ -55,9 +56,11 @@ def draw_window(red, blue, r_bullet, b_bullet, b_hl, r_hl):
     WIN.blit(red_ship, (red.x, red.y))
     WIN.blit(blue_ship, (blue.x, blue.y))
     for bullet in r_bullet:
-        WIN.blit(red_bullet, (bullet.x, bullet.y))
+        # WIN.blit(red_bullet, (bullet.x, bullet.y))
+        pygame.draw.rect(WIN, RED, [bullet.x, bullet.y, BULLET_W, BULLET_H])
     for bullet in b_bullet:
-        WIN.blit(blue_bullet, (bullet.x, bullet.y))
+        # WIN.blit(blue_bullet, (bullet.x, bullet.y))
+        pygame.draw.rect(WIN, BLUE, [bullet.x, bullet.y, BULLET_W, BULLET_H])
     pygame.display.update()
 
 
@@ -87,7 +90,7 @@ def handle_winner(text):
     draw_text = WINNER_FONT.render(text, True, WHITE)
     WIN.blit(draw_text, (WIDTH//2 - draw_text.get_width()//2,  HEIGHT//2 - draw_text.get_width()//2))
     pygame.display.update()
-    pygame.time.delay(5000)
+    pygame.time.delay(3000)
 
 
 def handle_bullets(red_b, blue_b, red, blue):
