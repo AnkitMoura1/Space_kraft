@@ -1,8 +1,8 @@
 Scape kraft is 2d game
-i used pygame module for creating this game
+i used pygame module for creating this game...
 
 ------- Controls -----
-WASD for controlling movement of left spaceship and left CTRL for shooting bullets
+W A S D keys for controlling movement of left spaceship and left CTRL for shooting bullets
 Arrow keys for controlling movement of right spaceship and RIGHT CTRL for shooting
 
 -----ABOUT WIN -------
